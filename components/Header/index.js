@@ -34,5 +34,5 @@ function Header() {
 * @param {node} parent: The parent node to append them to
 */
 function appendChildren(children, parent) {
-    children.forEach(child => parent.appendNode(child));
+    children.forEach(child => parent.appendChild(child));
 }
