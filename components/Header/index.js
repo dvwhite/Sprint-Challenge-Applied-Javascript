@@ -14,17 +14,17 @@ function Header() {
     outerDiv.classList.add('header');
 
     const spanDate = document.createElement('span');
-    spanTag.classList.add('date');
-    spanTag.textContent = 'SMARCH 28, 2019';
+    spanDate.classList.add('date');
+    spanDate.textContent = 'SMARCH 28, 2019';
 
     const h1Tag = document.createElement('h1');
     h1Tag.textContent = 'Lambda Times';
 
     const spanTemp = document.createElement('span');
-    spanTag.classList.add('temp');
-    spanTag.textContent = '98°';
+    spanTemp.classList.add('temp');
+    spanTemp.textContent = '98°';
 
-    outerDiv.appendChildren([spanDate, h1Tag, spanTemp]);
+    appendChildren([spanDate, h1Tag, spanTemp], outerDiv);
     return outerDiv;
 }
 
@@ -36,3 +36,6 @@ function Header() {
 function appendChildren(children, parent) {
     children.forEach(child => parent.appendChild(child));
 }
+
+const headerDiv = document.querySelector('.header-container');
+headerDiv.appendChild(Header());

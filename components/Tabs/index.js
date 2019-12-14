@@ -40,7 +40,3 @@ axios.get(tabsAPIURL)
     .catch(err => {
         console.log("Error:", err);
     });
-
-const tabsDiv = document.querySelector('.tabs');
-const topBarHeight = '44px';
-tabsDiv.style.marginTop = topBarHeight; //offset by height of the top bar so it's visible
