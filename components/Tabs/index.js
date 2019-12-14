@@ -8,8 +8,6 @@
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
 
-const apiURL = 'https://lambda-times-backend.herokuapp.com/topics';
-
 /*
 * A component representing a tab
 * @param {string} topic: The topic to set as the tab's textContent
@@ -32,7 +30,9 @@ function createTabs(topics) {
     topics.forEach(topic => topicsDiv.appendChild(Tab(topic)));
 }
 
-axios.get(apiURL)
+const tabsAPIURL = 'https://lambda-times-backend.herokuapp.com/topics';
+
+axios.get(tabsAPIURL)
     .then(response => {
         const topicsArr = response.data.topics;
         createTabs(topicsArr);
@@ -40,3 +40,7 @@ axios.get(apiURL)
     .catch(err => {
         console.log("Error:", err);
     });
+
+const tabsDiv = document.querySelector('.tabs');
+const topBarHeight = '44px';
+tabsDiv.style.marginTop = topBarHeight; //offset by height of the top bar so it's visible
