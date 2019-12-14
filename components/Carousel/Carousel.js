@@ -41,9 +41,11 @@ function Carousel(imgSrc) {
   leftBtnDiv.classList.add('left-button');
   leftBtnDiv.addEventListener('click', function() {
     viewingSlide -= 1;
-    viewingSlide %= (imgSrc.length - 1);
+    viewingSlide %= imgSrc.length;
+    viewingSlide = viewingSlide < 0 ? (imgSrc.length - 1) : viewingSlide 
     // Go to the next slide
     slide.src = imgSrc[viewingSlide];
+    slide.style.transition = 'all 0.5s fade';
   });
 
   // The right directional button to view the next image
@@ -51,9 +53,10 @@ function Carousel(imgSrc) {
   rightBtnDiv.classList.add('right-button');
   rightBtnDiv.addEventListener('click', function() {
     viewingSlide +=  1;
-    viewingSlide %= (imgSrc.length - 1);
+    viewingSlide %= imgSrc.length;
     // Go to the previous slide
     slide.src = imgSrc[viewingSlide];
+    slide.style.transition = 'all 0.5s fade';
   });
 
   // Append children to parent nodes
