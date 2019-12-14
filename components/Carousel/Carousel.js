@@ -40,8 +40,8 @@ function Carousel(imgSrc) {
   const leftBtnDiv = document.createElement('div');
   leftBtnDiv.classList.add('left-button');
   leftBtnDiv.addEventListener('click', function() {
-    viewingSlide++;
-    viewingSlide %= imgSrc.length;
+    viewingSlide -= 1;
+    viewingSlide %= (imgSrc.length - 1);
     // Go to the next slide
     slide.src = imgSrc[viewingSlide];
   });
@@ -50,8 +50,8 @@ function Carousel(imgSrc) {
   const rightBtnDiv = document.createElement('div');
   rightBtnDiv.classList.add('right-button');
   rightBtnDiv.addEventListener('click', function() {
-    viewingSlide--;
-    viewingSlide %= imgSrc.length;
+    viewingSlide +=  1;
+    viewingSlide %= (imgSrc.length - 1);
     // Go to the previous slide
     slide.src = imgSrc[viewingSlide];
   });
